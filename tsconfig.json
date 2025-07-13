@@ -48,8 +48,7 @@
         "src/**/*.d.ts",
         "src/**/*.tsx",
         "src/**/*.vue",
-        "src/**/*.svelte"
-, "src/常用功能整理.md"    ],
+        "src/**/*.svelte" ],
     "references": [
         {
             "path": "./tsconfig.node.json"
