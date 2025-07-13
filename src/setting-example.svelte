@@ -3,7 +3,6 @@
     import SettingPanel from '@/libs/components/setting-panel.svelte';
     import { t } from './utils/i18n';
     import { getDefaultSettings } from './defaultSettings';
-    import { SETTINGS_FILE } from './index';
 
     export let plugin;
 
@@ -84,7 +83,7 @@
     };
 
     async function saveSettings() {
-        await plugin.saveData(SETTINGS_FILE, settings);
+        await plugin.saveSettings(settings);
     }
 
     onMount(async () => {
