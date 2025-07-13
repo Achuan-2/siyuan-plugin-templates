@@ -2,7 +2,8 @@
     import { onMount } from 'svelte';
     import SettingPanel from '@/libs/components/setting-panel.svelte';
     import { t } from './utils/i18n';
-    import { getDefaultSettings, SETTINGS_FILE } from './index';
+    import { getDefaultSettings } from './defaultSettings';
+    import { SETTINGS_FILE } from './index';
 
     export let plugin;
 

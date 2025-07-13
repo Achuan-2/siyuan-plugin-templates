@@ -26,17 +26,12 @@ import SettingPanel from "./setting-example.svelte";
 import { setPluginInstance, t } from "./utils/i18n";
 import LoadingDialog from "./components/LoadingDialog.svelte";
 import { text } from "stream/consumers";
+import { getDefaultSettings } from "./defaultSettings";
 
 const STORAGE_NAME = "storage";
 export const SETTINGS_FILE = "settings.json";
 
-// 移除静态默认设置，改为动态函数
-export const getDefaultSettings = () => ({
-    textinput: t('settings.textinput.value'),
-    slider: 0.5,
-    checkbox: false,
-    textarea: t('settings.textarea.value'),
-});
+
 
 export default class PluginSample extends Plugin {
 
