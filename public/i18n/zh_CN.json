@@ -1,0 +1,9 @@
+{
+    "textinputTitle": "文本输入",
+    "textinputDesc": "请输入文本内容",
+    "sliderTitle": "滑块设置",
+    "sliderDesc": "拖动滑块调整数值",
+    "checkboxTitle": "启用功能",
+    "checkboxDesc": "选中以启用此功能",
+    "settingsPanel": "设置面板"
+}

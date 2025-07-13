@@ -1,0 +1,9 @@
+{
+    "textinputTitle": "Text Input",
+    "textinputDesc": "Please enter text content",
+    "sliderTitle": "Slider Setting",
+    "sliderDesc": "Drag the slider to adjust the value",
+    "checkboxTitle": "Enable Feature",
+    "checkboxDesc": "Check to enable this feature",
+    "settingsPanel": "Settings Panel"
+}
