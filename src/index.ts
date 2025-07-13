@@ -23,10 +23,10 @@ import { appendBlock, deleteBlock, setBlockAttrs, getBlockAttrs, pushMsg, pushEr
 import "@/index.scss";
 
 import SettingPanel from "./setting-example.svelte";
+import { getDefaultSettings } from "./defaultSettings";
 import { setPluginInstance, t } from "./utils/i18n";
 import LoadingDialog from "./components/LoadingDialog.svelte";
 import { text } from "stream/consumers";
-import { getDefaultSettings } from "./defaultSettings";
 
 const STORAGE_NAME = "storage";
 export const SETTINGS_FILE = "settings.json";
