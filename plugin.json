@@ -1,8 +1,8 @@
 {
   "name": "siyuan-plugin-templates",
-  "author": "frostime",
-  "url": "https://github.com/siyuan-note/plugin-sample-vite-svelte",
-  "version": "0.3.6",
+  "author": "Achuan-2",
+  "url": "https://github.com/Achuan-2/siyuan-plugin-templates",
+  "version": "0.0.1",
   "minAppVersion": "3.0.12",
   "backends": [
     "windows",
@@ -21,7 +21,7 @@
   ],
   "displayName": {
     "en_US": "Plugin sample with vite and svelte",
-    "zh_CN": "插件样例 vite + svelte 版"
+    "zh_CN": "Achuan-2的插件样例"
   },
   "description": {
     "en_US": "SiYuan plugin sample with vite and svelte",
