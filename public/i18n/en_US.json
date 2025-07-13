@@ -3,7 +3,8 @@
     "settings": {
         "textinput": {
             "title": "Text Input",
-            "description": "Please enter text content"
+            "description": "Please enter text content",
+            "value": "Default text content"
         },
         "slider": {
             "title": "Slider Setting",
@@ -16,7 +17,8 @@
         "textarea": {
             "title": "Text Area",
             "description": "Multi-line text input area",
-            "placeholder": "Enter your text here..."
+            "placeholder": "Enter your text here...",
+            "value": "Default text content"
         }
     }
 }

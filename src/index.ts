@@ -30,18 +30,14 @@ import { text } from "stream/consumers";
 const STORAGE_NAME = "storage";
 export const SETTINGS_FILE = "settings.json";
 
-// 默认设置
-export const DEFAULT_SETTINGS = {
-    textinput: 'test',
+// 移除静态默认设置，改为动态函数
+export const getDefaultSettings = () => ({
+    textinput: t('settings.textinput.value'),
     slider: 0.5,
     checkbox: false,
-    textarea: `
-“天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣”。
-出自清代彭端淑的《为学一首示子侄》。
-这句话的意思是，天底下的事有困难和容易之分吗？只要肯付诸行动，困难的事也变得容易；如果不躬行实践，容易的事也会变困难。
-`,
+    textarea: t('settings.textarea.value'),
+});
 
-};
 export default class PluginSample extends Plugin {
 
 
@@ -50,6 +46,9 @@ export default class PluginSample extends Plugin {
         // 设置i18n插件实例
         setPluginInstance(this);
 
+        // 现在可以安全地使用i18n化的默认设置
+        // 可以在这里预加载设置以确保后续使用
+        await this.loadSettings();
 
         //const stateData = await this.loadData(STORAGE_NAME);
 
@@ -66,7 +65,6 @@ export default class PluginSample extends Plugin {
     uninstall() {
         console.log("uninstall");
     }
-
 
     /**
      * 打开设置对话框
@@ -94,8 +92,9 @@ export default class PluginSample extends Plugin {
      * 加载设置
      */
     async loadSettings() {
-        const settings = await this.loadData(SETTINGS_FILE) || {};;
-        return { ...DEFAULT_SETTINGS, ...settings };
+        const settings = await this.loadData(SETTINGS_FILE);
+        const defaultSettings = getDefaultSettings();
+        return { ...defaultSettings, ...settings };
     }
 
     /**

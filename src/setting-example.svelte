@@ -2,20 +2,18 @@
     import { onMount } from 'svelte';
     import SettingPanel from '@/libs/components/setting-panel.svelte';
     import { t } from './utils/i18n';
-    import { DEFAULT_SETTINGS, SETTINGS_FILE } from './index';
+    import { getDefaultSettings, SETTINGS_FILE } from './index';
 
     export let plugin;
 
-
-    let settings = { ...DEFAULT_SETTINGS };
-
+    // 使用动态默认设置
+    let settings = { ...getDefaultSettings() };
 
     interface ISettingGroup {
         name: string;
         items: ISettingItem[];
         //  Type："checkbox" | "select" | "textinput" | "textarea" | "number" | "slider" | "button" | "hint" | "custom";
     }
-
 
     let groups: ISettingGroup[] = [
         {
@@ -40,7 +38,6 @@
                         step: 0.1,
                     },
                 },
-
             ],
         },
         {
@@ -59,14 +56,12 @@
                     value: settings.textarea,
                     type: 'textarea',
                     title: t('settings.textarea.title'),
-                    description:
-                        t('settings.textarea.description') ,
+                    description: t('settings.textarea.description'),
                     direction: 'row',
                     rows: 6,
                     placeholder: t('settings.textarea.placeholder'),
                 },
             ],
-
         },
     ];
 

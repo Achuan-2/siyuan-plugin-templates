@@ -3,7 +3,8 @@
     "settings": {
         "textinput": {
             "title": "文本输入",
-            "description": "请输入文本内容"
+            "description": "请输入文本内容",
+            "value": "默认文本内容"
         },
         "slider": {
             "title": "滑块设置",
@@ -16,7 +17,8 @@
         "textarea": {
             "title": "文本区域",
             "description": "多行文本输入区域",
-            "placeholder": "在此输入您的文本..."
+            "placeholder": "在此输入您的文本...",
+            "value": "默认文本内容"
         }
     }
 }
