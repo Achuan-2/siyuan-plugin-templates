@@ -1,9 +1,22 @@
 {
-    "textinputTitle": "Text Input",
-    "textinputDesc": "Please enter text content",
-    "sliderTitle": "Slider Setting",
-    "sliderDesc": "Drag the slider to adjust the value",
-    "checkboxTitle": "Enable Feature",
-    "checkboxDesc": "Check to enable this feature",
-    "settingsPanel": "Settings Panel"
+    "settingsPanel": "Settings Panel",
+    "settings": {
+        "textinput": {
+            "title": "Text Input",
+            "description": "Please enter text content"
+        },
+        "slider": {
+            "title": "Slider Setting",
+            "description": "Drag the slider to adjust the value"
+        },
+        "checkbox": {
+            "title": "Enable Feature",
+            "description": "Check to enable this feature"
+        },
+        "textarea": {
+            "title": "Text Area",
+            "description": "Multi-line text input area",
+            "placeholder": "Enter your text here..."
+        }
+    }
 }

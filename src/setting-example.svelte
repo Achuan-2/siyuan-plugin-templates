@@ -25,15 +25,15 @@
                     key: 'textinput',
                     value: settings.textinput,
                     type: 'textinput',
-                    title: t('textinputTitle'),
-                    description: t('textinputDesc'),
+                    title: t('settings.textinput.title'),
+                    description: t('settings.textinput.description'),
                 },
                 {
                     key: 'slider',
                     value: settings.slider,
                     type: 'slider',
-                    title: t('sliderTitle'),
-                    description: t('sliderDesc'),
+                    title: t('settings.slider.title'),
+                    description: t('settings.slider.description'),
                     slider: {
                         min: 0,
                         max: 1,
@@ -50,10 +50,23 @@
                     key: 'checkbox',
                     value: settings.checkbox,
                     type: 'checkbox',
-                    title: t('checkboxTitle'),
-                    description: t('checkboxDesc'),
+                    title: t('settings.checkbox.title'),
+                    description: t('settings.checkbox.description'),
+                },
+                // 'textarea'
+                {
+                    key: 'textarea',
+                    value: settings.textarea,
+                    type: 'textarea',
+                    title: t('settings.textarea.title'),
+                    description:
+                        t('settings.textarea.description') ,
+                    direction: 'row',
+                    rows: 6,
+                    placeholder: t('settings.textarea.placeholder'),
                 },
             ],
+
         },
     ];
 

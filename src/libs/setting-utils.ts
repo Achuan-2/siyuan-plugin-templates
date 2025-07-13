@@ -118,7 +118,7 @@ export class SettingUtils {
 
     async load() {
         let data = await this.plugin.loadData(this.file);
-        console.debug('Load config:', data);
+        // console.debug('Load config:', data);
         if (data) {
             for (let [key, item] of this.settings) {
                 item.value = data?.[key] ?? item.value;
@@ -131,7 +131,7 @@ export class SettingUtils {
     async save(data?: any) {
         data = data ?? this.dump();
         await this.plugin.saveData(this.file, this.dump());
-        console.debug('Save config:', data);
+        // console.debug('Save config:', data);
         return data;
     }
 
@@ -342,7 +342,9 @@ export class SettingUtils {
             case 'textarea':
                 let textareaElement: HTMLTextAreaElement = document.createElement('textarea');
                 textareaElement.className = "b3-text-field fn__block";
+                textareaElement.rows = 6;
                 textareaElement.value = item.value;
+                textareaElement.spellcheck = false;
                 textareaElement.onchange = item.action?.callback ?? (() => { });
                 itemElement = textareaElement;
                 break;

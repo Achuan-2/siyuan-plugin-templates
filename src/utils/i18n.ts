@@ -51,7 +51,18 @@ export function t(key: string, params?: { [key: string]: string }): string {
         return key;
     }
 
-    let text = i18nData[key];
+    // 支持嵌套键访问（如 settings.template.description）
+    let text = i18nData;
+    const keyParts = key.split('.');
+
+    for (const part of keyParts) {
+        if (text && typeof text === 'object' && part in text) {
+            text = text[part];
+        } else {
+            text = undefined;
+            break;
+        }
+    }
 
     // 如果没有找到对应的翻译文本，使用key作为后备
     if (typeof text !== 'string') {
@@ -88,7 +99,23 @@ export function hasTranslation(key: string): boolean {
         }
     }
 
-    return i18nData && typeof i18nData[key] === 'string';
+    if (!i18nData) {
+        return false;
+    }
+
+    // 支持嵌套键检查
+    let current = i18nData;
+    const keyParts = key.split('.');
+
+    for (const part of keyParts) {
+        if (current && typeof current === 'object' && part in current) {
+            current = current[part];
+        } else {
+            return false;
+        }
+    }
+
+    return typeof current === 'string';
 }
 
 /**

@@ -25,6 +25,7 @@ import "@/index.scss";
 import SettingPanel from "./setting-example.svelte";
 import { setPluginInstance, t } from "./utils/i18n";
 import LoadingDialog from "./components/LoadingDialog.svelte";
+import { text } from "stream/consumers";
 
 const STORAGE_NAME = "storage";
 export const SETTINGS_FILE = "settings.json";
@@ -34,6 +35,12 @@ export const DEFAULT_SETTINGS = {
     textinput: 'test',
     slider: 0.5,
     checkbox: false,
+    textarea: `
+“天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣”。
+出自清代彭端淑的《为学一首示子侄》。
+这句话的意思是，天底下的事有困难和容易之分吗？只要肯付诸行动，困难的事也变得容易；如果不躬行实践，容易的事也会变困难。
+`,
+
 };
 export default class PluginSample extends Plugin {
 
