@@ -66,7 +66,7 @@ export default class PluginSample extends Plugin {
     // 重写 openSetting 方法
     async openSetting() {
         let dialog = new Dialog({
-            title: t("settingsPanel"),
+            title: t("settings.settingsPanel"),
             content: `<div id="SettingPanel" style="height: 100%;"></div>`,
             width: "800px",
             height: "700px",

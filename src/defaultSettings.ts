@@ -5,4 +5,5 @@ export const getDefaultSettings = () => ({
     slider: 0.5,
     checkbox: false,
     textarea: t('settings.textarea.value'),
+    select: 'option1',
 });

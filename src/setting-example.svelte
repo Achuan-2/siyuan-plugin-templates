@@ -3,7 +3,7 @@
     import SettingPanel from '@/libs/components/setting-panel.svelte';
     import { t } from './utils/i18n';
     import { getDefaultSettings } from './defaultSettings';
-
+    import { pushMsg } from './api';
     export let plugin;
 
     // 使用动态默认设置
@@ -17,8 +17,15 @@
 
     let groups: ISettingGroup[] = [
         {
-            name: 'Tab1',
+            name: t('settings.settingsGroup.group1') || 'Tab1',
             items: [
+                {
+                    key: 'hint',
+                    value: '',
+                    type: 'hint',
+                    title: t('settings.hint.title'),
+                    description: t('settings.hint.description'),
+                },
                 {
                     key: 'textinput',
                     value: settings.textinput,
@@ -41,7 +48,7 @@
             ],
         },
         {
-            name: 'Tab2',
+            name: t('settings.settingsGroup.group2') || 'Tab2',
             items: [
                 {
                     key: 'checkbox',
@@ -60,6 +67,41 @@
                     direction: 'row',
                     rows: 6,
                     placeholder: t('settings.textarea.placeholder'),
+                },
+                {
+                    key: 'select',
+                    value: settings.select,
+                    type: 'select',
+                    title: t('settings.select.title'),
+                    description: t('settings.select.description'),
+                    options: {
+                        option1: t('settings.select.options.option1'),
+                        option2: t('settings.select.options.option2'),
+                        option3: t('settings.select.options.option3'),
+                    },
+                },
+            ],
+        },
+        {
+            name: t('settings.settingsGroup.reset') || 'Reset Settings',
+            items: [
+                {
+                    key: 'reset',
+                    value: '',
+                    type: 'button',
+                    title: t('settings.reset.title') || 'Reset Settings',
+                    description:
+                        t('settings.reset.description') || 'Reset all settings to default values',
+                    button: {
+                        label: t('settings.reset.label') || 'Reset',
+                        callback: async () => {
+                            settings = { ...getDefaultSettings() };
+                            updateGroupItems();
+                            await saveSettings();
+
+                            await pushMsg(t('settings.reset.message'));
+                        },
+                    },
                 },
             ],
         },
