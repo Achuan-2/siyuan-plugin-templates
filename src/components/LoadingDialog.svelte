@@ -37,3 +37,31 @@
     100% { transform: rotate(360deg); }
 }
 </style>
+
+
+
+<!-- usage
+private showLoadingDialog(message: string) {
+    if (this.loadingDialog) {
+        this.loadingDialog.destroy();
+    }
+    this.loadingDialog = new Dialog({
+        title: "Processing",
+        content: `<div id="loadingDialogContent"></div>`,
+        width: "300px",
+        height: "150px",
+        disableClose: true, // 禁止点击外部关闭
+        destroyCallback: null // 禁止自动关闭
+    });
+    new LoadingDialog({
+        target: this.loadingDialog.element.querySelector('#loadingDialogContent'),
+        props: { message }
+    });
+}
+
+private closeLoadingDialog() {
+    if (this.loadingDialog) {
+        this.loadingDialog.destroy();
+        this.loadingDialog = null;
+    }
+} -->
