@@ -27,7 +27,6 @@ import { getDefaultSettings } from "./defaultSettings";
 import { setPluginInstance, t } from "./utils/i18n";
 import LoadingDialog from "./components/LoadingDialog.svelte";
 
-const STORAGE_NAME = "storage";
 export const SETTINGS_FILE = "settings.json";
 
 
@@ -40,11 +39,9 @@ export default class PluginSample extends Plugin {
         // 设置i18n插件实例
         setPluginInstance(this);
 
-        // 现在可以安全地使用i18n化的默认设置
-        // 可以在这里预加载设置以确保后续使用
+        // 加载设置
         await this.loadSettings();
 
-        //const stateData = await this.loadData(STORAGE_NAME);
 
     }
 
