@@ -35,7 +35,7 @@ export default class PluginSample extends Plugin {
 
 
     async onload() {
-
+        // 插件被启用时会自动调用这个函数
         // 设置i18n插件实例
         setPluginInstance(this);
 
@@ -46,14 +46,17 @@ export default class PluginSample extends Plugin {
     }
 
     async onLayoutReady() {
+        //布局加载完成的时候，会自动调用这个函数
 
     }
 
     async onunload() {
+        //当插件被禁用的时候，会自动调用这个函数
         console.log("onunload");
     }
 
     uninstall() {
+        //当插件被卸载的时候，会自动调用这个函数
         console.log("uninstall");
     }
 
