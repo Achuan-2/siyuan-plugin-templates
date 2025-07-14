@@ -67,7 +67,7 @@ export default class PluginSample extends Plugin {
             content: `<div id="SettingPanel" style="height: 100%;"></div>`,
             width: "800px",
             height: "700px",
-            destroyCallback: (options) => {
+            destroyCallback: () => {
                 pannel.$destroy();
             }
         });
