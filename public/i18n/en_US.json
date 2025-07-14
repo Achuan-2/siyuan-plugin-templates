@@ -43,6 +43,7 @@
             "description": "Reset all settings to default values",
             "label": "Reset",
             "confirm": "Are you sure you want to reset all settings to default values?",
+            "confirmMessage": "Are you sure you want to reset all settings to default values? This action cannot be undone.",
             "message": "All settings have been reset to default values"
         }
     }

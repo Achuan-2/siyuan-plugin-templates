@@ -4,6 +4,7 @@
     import { t } from './utils/i18n';
     import { getDefaultSettings } from './defaultSettings';
     import { pushMsg } from './api';
+    import { confirm } from 'siyuan';
     export let plugin;
 
     // 使用动态默认设置
@@ -95,11 +96,22 @@
                     button: {
                         label: t('settings.reset.label') || 'Reset',
                         callback: async () => {
-                            settings = { ...getDefaultSettings() };
-                            updateGroupItems();
-                            await saveSettings();
-
-                            await pushMsg(t('settings.reset.message'));
+                            confirm(
+                                t('settings.reset.title') || 'Reset Settings',
+                                t('settings.reset.confirmMessage') ||
+                                    'Are you sure you want to reset all settings to default values? This action cannot be undone.',
+                                async () => {
+                                    // 确认回调
+                                    settings = { ...getDefaultSettings() };
+                                    updateGroupItems();
+                                    await saveSettings();
+                                    await pushMsg(t('settings.reset.message'));
+                                },
+                                () => {
+                                    // 取消回调（可选）
+                                    console.log('Reset cancelled');
+                                }
+                            );
                         },
                     },
                 },
