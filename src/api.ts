@@ -7,6 +7,7 @@
  */
 
 import { fetchPost, fetchSyncPost, IWebSocketData, openTab, Constants } from "siyuan";
+import { getFrontend, openMobileFileById } from 'siyuan';
 
 
 export async function request(url: string, data: any) {
@@ -402,6 +403,13 @@ export async function openBlock(blockId: string) {
     const block = await getBlockByID(blockId);
     if (!block) {
         throw new Error('块不存在');
+    }
+    // 判断是否是移动端
+    const isMobile = getFrontend().endsWith('mobile');
+    if (isMobile) {
+        // 如果是mobile，直接打开块
+        openMobileFileById(window.siyuan.ws.app, blockId);
+        return;
     }
     // 判断块的类型
     const isDoc = block.type === 'd';
