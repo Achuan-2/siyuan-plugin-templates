@@ -332,10 +332,10 @@ export async function unfoldBlock(id: BlockId) {
 export async function getBlockKramdown(id: BlockId, mode: string = 'md'): Promise<IResGetBlockKramdown> {
     let data = {
         id: id,
-        mode: mode
+        mode: mode // 'md' or 'textmark',
     }
     let url = '/api/block/getBlockKramdown';
-    return request(url, data);
+    return request(url, data); // 返回值 data.kramdown
 }
 export async function getBlockDOM(id: BlockId) {
     let data = {
