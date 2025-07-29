@@ -523,13 +523,14 @@ export async function readDir(path: string): Promise<IResReadDir> {
 
 // **************************************** Export ****************************************
 
-export async function exportMdContent(id: DocumentId,yfm: boolean=true,fillCSSVar: boolean=false,refMode: int=2,embedMode: int=0): Promise<IResExportMdContent> {
+export async function exportMdContent(id: DocumentId,yfm: boolean=true,fillCSSVar: boolean=false,refMode: number=2,embedMode: number=0,adjustHeadingLevel: boolean=true): Promise<IResExportMdContent> {
     let data = {
         id: id,
         yfm: yfm,
         fillCSSVar: fillCSSVar, // true： 导出具体的css值，false：导出变量
         refMode: refMode, // 2：锚文本块链, 3：仅锚文本, 4：块引转脚注+锚点哈希
-        embedMode: embedMode //0：使用原始文本，1：使用 Blockquote
+        embedMode: embedMode, //0：使用原始文本，1：使用 Blockquote
+        adjustHeadingLevel: adjustHeadingLevel
     }
     let url = '/api/export/exportMdContent';
     return request(url, data);
@@ -606,5 +607,3 @@ export async function version(): Promise<string> {
 export async function currentTime(): Promise<number> {
     return request('/api/system/currentTime', {});
 }
-
-
