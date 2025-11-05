@@ -12,12 +12,12 @@
   ],
   "disabledInPublish": true,
   "displayName": {
-    "default": "SiYuan Copilot",
-    "zh_CN": "SiYuan Copilot"
+    "default": "Plugin Template",
+    "zh_CN": "插件模板"
   },
   "description": {
-    "default": "SiYuan AI Assistant, supports multiple AI interfaces including OpenAI, Google Gemini, DeepSeek, and more. Supports dragging blocks and tabs to get note context.",
-    "zh_CN": "思源笔记 AI 助手,支持 OpenAI、Google Gemini、DeepSeek 等多种 AI 接口，支持拖动块、页签获取笔记上下文"
+    "default": "",
+    "zh_CN": ""
   },
   "readme": {
     "default": "README.md",
