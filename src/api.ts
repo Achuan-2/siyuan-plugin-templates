@@ -149,7 +149,7 @@ export async function createDocWithMd(notebook: NotebookId, path: string, markdo
 
 export async function renameDoc(notebook: NotebookId, path: string, title: string): Promise<DocumentId> {
     let data = {
-        doc: notebook,
+        notebook: notebook,
         path: path,
         title: title
     };
@@ -222,6 +222,15 @@ export async function getIDsByHPath(notebook: NotebookId, path: string): Promise
         path: path
     };
     let url = '/api/filetree/getIDsByHPath';
+    return request(url, data);
+}
+
+export async function searchDocs(k: string, flashcard: boolean = false): Promise<IResSearchDocs[]> {
+    let data = {
+        k: k,
+        flashcard: flashcard
+    };
+    let url = '/api/filetree/searchDocs';
     return request(url, data);
 }
 
@@ -324,9 +333,11 @@ export async function unfoldBlock(id: BlockId) {
     let url = '/api/block/unfoldBlock';
     return request(url, data);
 }
+export async function refreshSql() {
+    return fetchSyncPost('/api/sqlite/flushTransaction');
+}
 
-
-export async function getBlockKramdown(id: BlockId, mode: string = 'md'): Promise<IResGetBlockKramdown> {
+export async function getBlockKramdown(id: BlockId, mode: string = 'textmark'): Promise<IResGetBlockKramdown> {
     let data = {
         id: id,
         mode: mode // 'md' or 'textmark',
@@ -520,7 +531,7 @@ export async function readDir(path: string): Promise<IResReadDir> {
 
 // **************************************** Export ****************************************
 
-export async function exportMdContent(id: DocumentId,yfm: boolean=true,fillCSSVar: boolean=false,refMode: number=2,embedMode: number=0,adjustHeadingLevel: boolean=true): Promise<IResExportMdContent> {
+export async function exportMdContent(id: DocumentId, yfm: boolean = false, fillCSSVar: boolean = false, refMode: number = 2, embedMode: number = 0, adjustHeadingLevel: boolean = false): Promise<IResExportMdContent> {
     let data = {
         id: id,
         yfm: yfm,
