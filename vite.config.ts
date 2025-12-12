@@ -35,6 +35,7 @@ export default defineConfig({
                 { src: "./plugin.json", dest: "./" },
                 { src: "./preview.png", dest: "./" },
                 { src: "./icon.png", dest: "./" },
+                { src: "./assets/*", dest: "./assets/" },
                 { src: "./i18n/*", dest: "./i18n/" },
             ],
         }),
