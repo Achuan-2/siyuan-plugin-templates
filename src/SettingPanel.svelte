@@ -172,9 +172,6 @@
         const loadedSettings = await plugin.loadSettings();
         settings = { ...loadedSettings };
         updateGroupItems();
-        // 确保设置已保存（可能包含新的默认值）
-        await saveSettings();
-        console.debug('加载配置文件完成');
     }
 
     function updateGroupItems() {
