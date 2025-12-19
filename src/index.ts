@@ -52,12 +52,13 @@ export default class PluginSample extends Plugin {
 
     async onunload() {
         //当插件被禁用的时候，会自动调用这个函数
-        console.log("onunload");
+        // 需要禁用监听事件
     }
 
-    uninstall() {
+    async uninstall() {
         //当插件被卸载的时候，会自动调用这个函数
-        console.log("uninstall");
+        await this.onunload();
+        await this.removeData(SETTINGS_FILE);
     }
 
     /**
