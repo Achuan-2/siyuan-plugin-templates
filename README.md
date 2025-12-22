@@ -9,7 +9,7 @@
 MIT License
 
 
-## 🔧 开发相关
+## 🔧 开发
 
 ```bash
 pnpm install
