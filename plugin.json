@@ -20,8 +20,8 @@
     "zh_CN": ""
   },
   "readme": {
-    "default": "README.md",
-    "zh_CN": "README_zh_CN.md"
+    "default": "README_en_US.md",
+    "zh_CN": "README.md"
   },
   "funding": {
     "custom": [
