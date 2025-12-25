@@ -6,8 +6,7 @@
 
 ## 📄 许可证
 
-MIT License
-
+AGPL v3.0 License
 
 ## 🔧 开发
 
