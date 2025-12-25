@@ -5,7 +5,7 @@ See [CHANGELOG.md](https://cdn.jsdelivr.net/gh/Achuan-2/siyuan-plugin-copilot@ma
 
 ## 📄 License
 
-MIT License
+AGPL v3.0 License
 
 
 ## 🔧 Development
