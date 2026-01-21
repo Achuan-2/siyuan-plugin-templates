@@ -20,6 +20,15 @@ pnpm run dev
 
 - 基于 [plugin-sample-vite-svelte](https://github.com/siyuan-note/plugin-sample-vite-svelte/) 模板开发
 
+## ❤️项目贡献者
+
+<a href="https://github.com/Achuan-2/siyuan-plugin-task-note-management/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Achuan-2/siyuan-plugin-task-note-management" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
+
+
 ## ❤️用爱发电
 
 如果喜欢我的插件，欢迎给GitHub仓库点star和微信赞赏，这会激励我继续完善此插件和开发新插件。

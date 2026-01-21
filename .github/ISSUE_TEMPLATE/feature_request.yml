@@ -5,11 +5,19 @@ body:
   - type: markdown
     attributes:
       value: |
-        开源只是分享，不等于我要浪费我的时间免费帮用户实现 ta 需要的功能。
+        插件为个人自用，开源只是分享，不等于我要浪费我的时间免费帮用户实现 ta 需要的功能。
 
-        我需要的功能我会慢慢改进（打赏可以催更）；有些我觉得可以改进但现阶段不必要的功能，需要打赏才考虑实现（会标注“打赏”标签和所需金额）；我不需要的功能或实现成本极高的功能会直接关闭 issue，不予考虑。
+        我需要的功能我会慢慢改进（打赏可以催更）；有些我觉得可以改进但现阶段不必要的功能，需要打赏才考虑实现（会标注“打赏”标签和所需金额）；我不需要的功能或实现成本极高的功能会直接关闭 issue，不予考虑。我没实现的功能欢迎有大佬来pr。
 
         请不要不经思考随意提大量 issue，因为这会打扰到我并浪费我的时间。
+
+  - type: checkboxes
+    attributes:
+      label: 是否已 Star 本仓库？
+      description: 未 Star 的用户 Issue 会被直接关闭。
+      options:
+        - label: 我已 Star 本仓库
+          required: true
   - type: checkboxes
     attributes:
       label: 是否已搜索现有 Issue？
@@ -43,7 +51,9 @@ body:
     attributes:
       label: 是否愿意打赏（必须，若愿意请说明金额）
       description: |
-        为了加速实现，可选打赏支持。请说明是否愿意打赏支持及标注打赏金额，已打赏用户标注过去打赏过的金额。
+        为了加速实现，可选打赏支持，已打赏issue的处理优于未打赏。
+        请按规范填写，不愿意打赏就填「不愿意」，愿意打赏，请填写「愿意+具体金额」，过去已打赏需要填写「已打赏+过去打赏大体总额」，不按照规范填写issue会被直接关闭。
+        为本项目PR贡献代码的大佬可填「PR贡献者」
         ![打赏链接](https://fastly.jsdelivr.net/gh/Achuan-2/PicBed/assets/20241128221208-2024-11-28.png)
     validations:
       required: true
