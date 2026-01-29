@@ -9,23 +9,6 @@ export function getPluginInstance(): any {
     return pluginInstance;
 }
 
-// 保存插件数据
-export async function saveData(key: string, data: any): Promise<void> {
-    if (pluginInstance && typeof pluginInstance.saveData === 'function') {
-        return pluginInstance.saveData(key, data);
-    }
-    console.warn('saveData 未实现：没有可用的 plugin 实例，已跳过保存。');
-    return Promise.resolve();
-}
-
-// 加载数据
-export async function loadData(key: string): Promise<any> {
-    if (pluginInstance && typeof pluginInstance.loadData === 'function') {
-        return pluginInstance.loadData(key);
-    }
-    console.warn('loadData 未实现：没有可用的 plugin 实例，返回 null。');
-    return Promise.resolve(null);
-}
 
 export function i18n(key: string, params?: { [key: string]: string }): string {
     // 首先尝试从插件实例获取i18n数据
