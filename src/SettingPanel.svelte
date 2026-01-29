@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import SettingPanel from '@/libs/components/setting-panel.svelte';
-    import { t } from './utils/i18n';
+    import { i18n } from './pluginInstance';
     import { getDefaultSettings } from './defaultSettings';
     import { pushMsg } from './api';
     import { confirm } from 'siyuan';

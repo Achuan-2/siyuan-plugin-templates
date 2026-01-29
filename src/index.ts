@@ -19,12 +19,12 @@ import {
     ICardData
 } from "siyuan";
 
-import { appendBlock, deleteBlock, setBlockAttrs, getBlockAttrs, pushMsg, pushErrMsg, sql, renderSprig, getChildBlocks, insertBlock, renameDocByID, prependBlock, updateBlock, createDocWithMd,  getBlockKramdown, getBlockDOM } from "./api";
+import { appendBlock, deleteBlock, setBlockAttrs, getBlockAttrs, pushMsg, pushErrMsg, sql, renderSprig, getChildBlocks, insertBlock, renameDocByID, prependBlock, updateBlock, createDocWithMd, getBlockKramdown, getBlockDOM } from "./api";
 import "@/index.scss";
 
 import SettingPanel from "./SettingPanel.svelte";
 import { getDefaultSettings } from "./defaultSettings";
-import { setPluginInstance, t } from "./utils/i18n";
+import { setPluginInstance, i18n } from "./pluginInstance";
 import LoadingDialog from "./components/LoadingDialog.svelte";
 
 export const SETTINGS_FILE = "settings.json";
@@ -32,15 +32,18 @@ export const SETTINGS_FILE = "settings.json";
 
 
 export default class PluginSample extends Plugin {
+    // 本地缓存的设置，避免每次都从文件读取
+    settings: any = null;
 
 
     async onload() {
         // 插件被启用时会自动调用这个函数
-        // 设置i18n插件实例
+        // 设置插件实例
         setPluginInstance(this);
 
         // 加载设置
-        await this.loadSettings();
+        // 启动时强制从文件读取一次
+        await this.loadSettings(true);
 
 
     }
@@ -67,7 +70,7 @@ export default class PluginSample extends Plugin {
     // 重写 openSetting 方法
     async openSetting() {
         let dialog = new Dialog({
-            title: t("settings.settingsPanel"),
+            title: i18n("settings.settingsPanel"),
             content: `<div id="SettingPanel" style="height: 100%;"></div>`,
             width: "800px",
             height: "700px",
@@ -86,16 +89,23 @@ export default class PluginSample extends Plugin {
     /**
      * 加载设置
      */
-    async loadSettings() {
+    async loadSettings(update: boolean = false) {
+        if (!update && this.settings) {
+            return this.settings;
+        }
+
         const settings = await this.loadData(SETTINGS_FILE);
         const defaultSettings = getDefaultSettings();
-        return { ...defaultSettings, ...settings };
+        this.settings = { ...defaultSettings, ...settings };
+        return this.settings;
     }
 
     /**
      * 保存设置
      */
     async saveSettings(settings: any) {
+        // 更新缓存并持久化
+        this.settings = settings;
         await this.saveData(SETTINGS_FILE, settings);
     }
 

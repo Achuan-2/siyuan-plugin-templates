@@ -1,9 +1,9 @@
-import { t } from "./utils/i18n";
+import { i18n } from "./pluginInstance";
 
 export const getDefaultSettings = () => ({
-    textinput: t('settings.textinput.value'),
+    textinput: i18n('settings.textinput.value'),
     slider: 0.5,
     checkbox: false,
-    textarea: t('settings.textarea.value'),
+    textarea: i18n('settings.textarea.value'),
     select: 'option1',
 });
