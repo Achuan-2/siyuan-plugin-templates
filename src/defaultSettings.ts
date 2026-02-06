@@ -6,4 +6,8 @@ export const getDefaultSettings = () => ({
     checkbox: false,
     textarea: i18n('settings.textarea.value'),
     select: 'option1',
+    // 数据迁移标志，用于版本升级迁移数据
+    dataTransfer: {
+        key: false
+    },
 });
