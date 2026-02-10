@@ -1,7 +1,7 @@
 
 ## 📝更新日志
 
-见[CHANGELOG.md](https://cdn.jsdelivr.net/gh/Achuan-2/siyuan-plugin-copilot@main/CHANGELOG.md)
+见[CHANGELOG.md](https://cdn.jsdelivr.net/gh/Achuan-2/siyuan-plugin-template@main/CHANGELOG.md)
 
 
 ## 📄 许可证
@@ -22,8 +22,8 @@ pnpm run dev
 
 ## ❤️项目贡献者
 
-<a href="https://github.com/Achuan-2/siyuan-plugin-task-note-management/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Achuan-2/siyuan-plugin-task-note-management" />
+<a href="https://github.com/Achuan-2/siyuan-plugin-template/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Achuan-2/siyuan-plugin-template" />
 </a>
 
 Made with [contrib.rocks](https://contrib.rocks).
@@ -39,4 +39,4 @@ Made with [contrib.rocks](https://contrib.rocks).
 
 累积赞赏50元的朋友如果想加我微信，可以发邮件到<span data-type="a" data-href="mailto:achuan-2@outlook.com">achuan-2@outlook.com</span>来进行好友申请（赞赏达不到50元的，我不会回复邮件和加好友哦，因为不想当免费客服）
 
-![image](https://camo.githubusercontent.com/8052f6f2e7dafba534e781934efa9bcb084fa3a9dfa5c221a85ac63db8b043cb/68747470733a2f2f6173736574732e62336c6f6766696c652e636f6d2f73697975616e2f313631303230353735393030352f6173736574732f6e6574776f726b2d61737365742d696d6167652d32303235303631343132333535382d667568697235762e706e67)
+![image](https://assets.b3logfile.com/siyuan/1610205759005/assets/network-asset-image-20250614123558-fuhir5v.png)
