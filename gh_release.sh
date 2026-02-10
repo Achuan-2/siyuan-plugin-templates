@@ -3,12 +3,46 @@
 # Change directory to the script's directory
 cd "$(dirname "$0")" 
 
+# Get current branch
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+# Ensure we're on private-branch
+if [ "$current_branch" != "private-branch" ]; then
+    echo "Current branch is $current_branch, switching to private-branch..."
+    git checkout private-branch || {
+        echo "Error: Failed to switch to private-branch"
+        exit 1
+    }
+fi
+
 # Get version from plugin.json
 version=v$(grep -oP '(?<="version": ")[^"]+' plugin.json) 
-# Commit changes
+
+echo "Preparing release for version: $version"
+
+# Commit changes in private-branch
+echo "Committing changes in private-branch..."
 git add .
-git commit -m "🔖 $version" 
+git commit -m "🔖 $version" || echo "No changes to commit in private-branch"
 git push private HEAD:main
+
+# Switch to main branch
+echo "Switching to main branch..."
+git checkout main
+git pull origin main
+
+# Copy CHANGELOG.md from private-branch
+echo "Copying CHANGELOG.md from private-branch..."
+git checkout private-branch -- CHANGELOG.md
+
+# Commit the changelog update in main branch
+echo "Committing CHANGELOG.md in main branch..."
+git add CHANGELOG.md
+git commit -m "📝 Update CHANGELOG for $version" || echo "No changes to CHANGELOG.md"
+
+# Push main branch
+echo "Pushing main branch..."
+git push origin main
 
 echo "Creating release for version: $version"
 
@@ -58,3 +92,9 @@ gh release create "$version" package.zip \
     --latest
 
 echo "Release $version created successfully!"
+
+# Switch back to private-branch
+echo "Switching back to private-branch..."
+git checkout private-branch
+
+echo "Done! You are now back on the private-branch."
