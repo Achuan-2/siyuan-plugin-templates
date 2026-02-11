@@ -8,7 +8,14 @@ current_branch=$(git rev-parse --abbrev-ref HEAD)
 
 # Get version from plugin.json
 version=v$(grep -oP '(?<="version": ")[^"]+' plugin.json) 
-
+# Check if version already exists
+if git rev-parse "$version" >/dev/null 2>&1 || gh release view "$version" >/dev/null 2>&1; then
+    read -p "Version $version already exists. Overwrite? (y/n) " confirm
+    if [ "$confirm" != "y" ]; then
+        echo "Release aborted."
+        exit 0
+    fi
+fi
 echo "Preparing release for version: $version"
 
 # Commit changes in private-branch
