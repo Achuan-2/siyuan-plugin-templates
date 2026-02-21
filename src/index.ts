@@ -53,11 +53,17 @@ export default class PluginSample extends Plugin {
 
     }
 
-    async onunload() {
+    onunload() {
         //当插件被禁用的时候，会自动调用这个函数
         // 需要禁用监听事件
     }
 
+
+    // 使用 saveData() 存储的数据发生变更时会触发，如果不定义则默认自动禁用插件再重新启用
+    // Triggered when data stored using saveData() changes. If commented out, the plugin will be automatically disabled and then re-enabled.
+    // onDataChanged() {
+    //     console.log("onDataChanged");
+    // }
     async uninstall() {
         //当插件被卸载的时候，会自动调用这个函数
         await this.onunload();
