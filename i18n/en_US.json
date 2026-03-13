@@ -1,4 +1,5 @@
 {
+    "name": "Siyuan Plugin Template",
     "settings": {
         "settingsPanel": "Settings Panel",
         "settingsGroup": {
